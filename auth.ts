@@ -65,16 +65,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     // },
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      const paths = ["/dashboard"];
-      const isProtected = paths.map((path) => {
-        if (nextUrl.pathname.startsWith(path)) {
-          return path;
-        }
-      });
-      if (isProtected && !isLoggedIn) {
-        const redirectUrl = new URL("/login", nextUrl.origin);
-        redirectUrl.searchParams.append("callbackUrl", nextUrl.href);
-        return Response.redirect(redirectUrl);
+      console.log(nextUrl.href);
+      const isOnDashboard = nextUrl.pathname.startsWith("/dashboard");
+      if (isOnDashboard) {
+        if (isLoggedIn) return true;
+        return false; // Redirect unauthenticated users to login page
+      } else if (isLoggedIn) {
+        return Response.redirect(new URL("/dashboard", nextUrl));
       }
       return true;
     },

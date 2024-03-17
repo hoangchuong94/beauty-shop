@@ -9,7 +9,7 @@ export default function Profile() {
   const { data } = useSession({
     required: true,
     onUnauthenticated() {
-      router.push("/login");
+      router.push("router.push('/api/auth/signin');");
     },
   });
   const user = data?.user;

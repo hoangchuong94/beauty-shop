@@ -123,13 +123,8 @@ export async function authenticate(
   formData: FormData
 ) {
   try {
-    return (await signIn("credentials", formData)) as any;
+    return await signIn("credentials", formData);
   } catch (error) {
-    return {
-      message: "Login authentication field error",
-      errors: {
-        errorAuth: error,
-      },
-    };
+    console.log(error);
   }
 }
