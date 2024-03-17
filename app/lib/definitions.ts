@@ -17,29 +17,37 @@ export type UserAuth = {
   roles: string[];
 };
 
+export type Customer = {
+  id: string;
+  name: string;
+  email: string;
+  imageUrl: string;
+};
+
+export type Category = {
+  id: string;
+  name: string;
+};
+
+export type Invoice = {
+  id: string;
+  customerId: string;
+  amount: number;
+  createdAt: string;
+  status: string;
+};
+
+export type Revenue = {
+  month: string;
+  revenue: number;
+};
+
 export type LatestInvoice = {
   id: string;
   name: string;
   imageUrl: string;
   email: string;
   amount: string;
-};
-
-export type InvoiceForm = {
-  id: string;
-  customerId: string;
-  amount: number;
-  status: string;
-};
-
-export type CustomerField = {
-  id: string;
-  name: string;
-};
-
-export type Revenue = {
-  month: string;
-  revenue: number;
 };
 
 export type LatestInvoiceRaw = Omit<LatestInvoice, "amount"> & {
@@ -52,7 +60,7 @@ export type InvoicesTable = {
   name: string;
   email: string;
   imageUrl: string;
-  date: string;
+  createdAt: string;
   amount: number;
   status: string;
 };
@@ -75,6 +83,18 @@ export type FormattedCustomersTable = {
   totalInvoices: number;
   totalPending: string;
   totalPaid: string;
+};
+
+export type CustomerField = {
+  id: string;
+  name: string;
+};
+
+export type InvoiceForm = {
+  id: string;
+  customerId: string;
+  amount: number;
+  status: string;
 };
 
 export type MyLinks = {

@@ -1,5 +1,4 @@
 import prisma from "@/app/lib/prisma/prisma";
-import { Prisma, User } from "@prisma/client";
 import { formatCurrency } from "./utils";
 import { unstable_noStore as noStore } from "next/cache";
 
@@ -308,7 +307,7 @@ export async function getUser(email: string) {
       },
     });
 
-    return user as User | null;
+    return user;
   } catch (error) {
     console.error("Prisma Error:", error);
     throw new Error("Failed to fetch user.");
