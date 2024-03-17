@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-import prisma from "@/app/lib/prisma/prisma";
+import prisma from "../app/lib/prisma/prisma";
 import { hash } from "bcryptjs";
 import {
   categories,
@@ -9,7 +8,7 @@ import {
   roles,
   users,
   user_role,
-} from "@/app/lib/placeholder-data";
+} from "../app/lib/placeholder-data";
 
 async function insertUsers() {
   for (const user of users) {

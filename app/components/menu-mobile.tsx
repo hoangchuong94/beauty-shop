@@ -37,7 +37,7 @@ const MenuMobile = ({ children }: { children: React.ReactNode }) => {
             </Link>
             <div className="px-2">|</div>
             <Link
-              href={"/login"}
+              href={"/register"}
               className="text-base leading-4 text-black md:text-xl"
             >
               Register
