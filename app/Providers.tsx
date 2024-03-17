@@ -1,4 +1,3 @@
-"use server";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "react-hot-toast";
 import React from "react";
