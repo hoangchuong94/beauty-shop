@@ -25,6 +25,11 @@ export type LatestInvoice = {
   amount: string;
 };
 
+export type Revenue = {
+  month: string;
+  revenue: number;
+};
+
 export type LatestInvoiceRaw = Omit<LatestInvoice, "amount"> & {
   amount: number;
 };
