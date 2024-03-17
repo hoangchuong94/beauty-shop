@@ -1,0 +1,43 @@
+"use client";
+
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+export default function Profile() {
+  const router = useRouter();
+  const { data } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push("/login");
+    },
+  });
+  const user = data?.user;
+  const randomKey = user?.randomKey;
+  return (
+    <>
+      {!user ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="flex items-center gap-8">
+          {user.image && (
+            <div>
+              <Image
+                src={user.image}
+                alt={`profile photo of ${user.name}`}
+                width={90}
+                height={90}
+              />
+            </div>
+          )}
+          <div className="mt-8">
+            <p className="mb-3">ID: {user.id}</p>
+            <p className="mb-3">Name: {user.name}</p>
+            <p className="mb-3">Email: {user.email}</p>
+            <p className="mb-3">Email: {user.randomKey}</p>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
