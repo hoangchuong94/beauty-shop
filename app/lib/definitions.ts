@@ -25,6 +25,18 @@ export type LatestInvoice = {
   amount: string;
 };
 
+export type InvoiceForm = {
+  id: string;
+  customerId: string;
+  amount: number;
+  status: "pending" | "paid";
+};
+
+export type CustomerField = {
+  id: string;
+  name: string;
+};
+
 export type Revenue = {
   month: string;
   revenue: number;
