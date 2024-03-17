@@ -11,8 +11,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { authenticate } from "@/app/lib/actions";
 
 export default function LoginForm() {
-  const errorMessage: any = { message: null, errors: {} };
-  const [state, dispatch] = useFormState(authenticate, errorMessage);
+  const [state, dispatch] = useFormState(authenticate, undefined);
   return (
     <>
       <form action={dispatch} className="space-y-3">
