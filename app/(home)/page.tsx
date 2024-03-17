@@ -1,4 +1,4 @@
-import Background from "@/app/components/Background";
+import Background from "@/app/components/background";
 import Supplier from "@/app/components/supplier";
 import Products from "@/app/components/list-products";
 
