@@ -3,7 +3,6 @@ import prisma from "./prisma/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { signIn } from "@/auth";
-import { AuthError } from "next-auth";
 import { z } from "zod";
 
 export type State = {
@@ -123,8 +122,8 @@ export async function authenticate(
   formData: FormData
 ) {
   try {
-    return await signIn("credentials", formData);
+    await signIn("credentials", formData);
   } catch (error) {
-    console.log(error);
+    return "Something went wrong.";
   }
 }

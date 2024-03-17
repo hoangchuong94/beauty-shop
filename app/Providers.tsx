@@ -7,6 +7,7 @@ const Providers = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
+  console.log("provider");
   return (
     <SessionProvider>
       <Toaster position="top-right" reverseOrder />

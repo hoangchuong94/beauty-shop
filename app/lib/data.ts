@@ -1,37 +1,27 @@
 import prisma from "@/app/lib/prisma/prisma";
 import { Prisma, User } from "@prisma/client";
-import {
-  CustomerField,
-  CustomersTableType,
-  InvoiceForm,
-  InvoicesTable,
-  LatestInvoiceRaw,
-  // User,
-  Revenue,
-  Categories,
-} from "./definitions";
 import { formatCurrency } from "./utils";
 import { unstable_noStore as noStore } from "next/cache";
 
-export async function filter(query: string) {
-  try {
-    if (query.length > 0) {
-      const count = await prisma.invoice.count({
-        where: {
-          amount: { gte: 89.45 },
-        },
-      });
-      const total = Math.ceil(Number(count));
-      return total;
-    }
-    return 0;
-  } catch (error) {
-    console.error("Prisma Error:", error);
-    throw new Error("Failed to fetch filter query data.");
-  } finally {
-    await prisma.$disconnect();
-  }
-}
+// export async function filter(query: string) {
+//   try {
+//     if (query.length > 0) {
+//       const count = await prisma.invoice.count({
+//         where: {
+//           amount: { gte: 89.45 },
+//         },
+//       });
+//       const total = Math.ceil(Number(count));
+//       return total;
+//     }
+//     return 0;
+//   } catch (error) {
+//     console.error("Prisma Error:", error);
+//     throw new Error("Failed to fetch filter query data.");
+//   } finally {
+//     await prisma.$disconnect();
+//   }
+// }
 
 export async function fetchCategories() {
   noStore();
