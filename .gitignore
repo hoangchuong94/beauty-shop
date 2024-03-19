@@ -9,6 +9,12 @@
 # testing
 /coverage
 
+#vscode 
+.vscode
+
+# prettierrc
+.prettierrc
+
 # next.js
 /.next/
 /out/

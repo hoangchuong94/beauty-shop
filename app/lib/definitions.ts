@@ -1,4 +1,4 @@
-declare module "next-auth" {
+declare module 'next-auth' {
   interface Session {
     user: UserAuth;
   }
@@ -50,7 +50,7 @@ export type LatestInvoice = {
   amount: string;
 };
 
-export type LatestInvoiceRaw = Omit<LatestInvoice, "amount"> & {
+export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
   amount: number;
 };
 
@@ -109,4 +109,12 @@ export type Background = {
   title?: string;
   detail?: string;
   description?: string;
+};
+
+export type StateError = {
+  errors?: {
+    email?: string[];
+    password?: string[];
+  };
+  message?: string | null;
 };
